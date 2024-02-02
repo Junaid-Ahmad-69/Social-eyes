@@ -6,18 +6,27 @@ import {useEffect, useState} from "react";
 
 
 const Header = () => {
-    const [mobileNavbar, setMobileNavbar] = useState<boolean>(true);
-
-    useEffect(() => {
-        const mobileNav = () => window.innerWidth >= 1024 ? setMobileNavbar(true): setMobileNavbar(false);
-        window.addEventListener("resize", mobileNav)
-        return () => window.removeEventListener("resize", mobileNav)
-    }, [])
+    // const [mobileNavbar, setMobileNavbar] = useState<boolean>(true);
+    //
+    // useEffect(() => {
+    //     const mobileNav = () => window.innerWidth >= 1024 ? setMobileNavbar(true): setMobileNavbar(false);
+    //     window.addEventListener("resize", mobileNav)
+    //     return () => window.removeEventListener("resize", mobileNav)
+    // }, [])
 
     return (
         <header className="flex items-center justify-between w-full ">
             <Logo/>
-            {mobileNavbar ? <Navbar anchorStyle="" linkStyles="flex items-center gap-x-[40px]" containerStyle="flex items-center justify-between gap-12"/> : <MobileNav/>}
+            {/*{mobileNavbar ? <Navbar anchorStyle="" linkStyles="flex items-center gap-x-[40px]" containerStyle="flex items-center justify-between gap-12"/> : <MobileNav/>}*/}
+            <div className="xl:block hidden">
+
+                <Navbar anchorStyle="" linkStyles="flex items-center gap-x-[40px]"
+                        containerStyle="flex items-center justify-between gap-12"/>
+            </div>
+
+            <div className="xl:hidden block">
+                <MobileNav/>
+            </div>
         </header>
     )
 }
