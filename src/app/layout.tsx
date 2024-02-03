@@ -18,7 +18,7 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body className={overpass.className}>
-        <div className="sm:h-screen h-full mx-8 social_eye_wrapper">
+        <div className="sm:h-screen h-full md:mx-8 mx-0 social_eye_wrapper">
             <div className="container mx-auto py-8">
                 <Header/>
                 <main>
