@@ -102,11 +102,12 @@
     width: 100%;
 }
 
-@media screen and (max-width: 500px){
-    .social_eye_search_field::-webkit-input-placeholder{
+@media screen and (max-width: 500px) {
+    .social_eye_search_field::-webkit-input-placeholder {
         color: transparent;
     }
 }
+
 .social_eye_feature_hidden {
     text-align: justify;
     display: -webkit-box;
@@ -115,6 +116,12 @@
     -webkit-line-clamp: 1;
     max-width: 400px;
     width: 100%;
+}
+
+@media (max-width: 480px) {
+    .social_eye_feature_hidden {
+        -webkit-line-clamp: unset;
+    }
 }
 
 @media (min-width: 360px) and (max-width: 992px) {
@@ -131,4 +138,7 @@
 .social_eye_mobile_gap {
     gap: 3.5rem;
     margin-top: 5rem;
+}
+.social_eye_show_more{
+
 }

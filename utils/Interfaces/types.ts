@@ -4,7 +4,8 @@ export interface INavList {
 }
 export interface IBannerFeature {
     title: string,
-    desc: string
+    desc: string,
+    id: number,
 }
 export interface INavBarProps{
     containerStyle : string,
