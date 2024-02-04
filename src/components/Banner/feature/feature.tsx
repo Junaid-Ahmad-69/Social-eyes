@@ -7,16 +7,20 @@ import {number} from "prop-types";
 const bannerData: IBannerFeature[] = featureData
 const Feature = () => {
     const [showMore, setShowMore] = useState<boolean>(true)
-    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState<number>(0);
     const [isExpanded , setIsExpanded] = useState<number | null>(null)
 
-    const getCurrentWidth = () => {
-        setWindowWidth(window.innerWidth)
-    }
     useEffect(() => {
-        window.addEventListener("resize", getCurrentWidth);
-        return () => {
-            window.removeEventListener("resize", getCurrentWidth)
+        if(typeof window !== "undefined") {
+            setWindowWidth(window.innerWidth);
+            const getCurrentWidth = () => {
+                setWindowWidth(window.innerWidth)
+            }
+
+            window.addEventListener("resize", getCurrentWidth);
+            return () => {
+                window.removeEventListener("resize", getCurrentWidth)
+            }
         }
     }, [windowWidth]);
     const handlerShowLabel = (index: number) => {
